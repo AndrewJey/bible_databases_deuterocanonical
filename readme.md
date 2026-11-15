@@ -1,5 +1,11 @@
 # Scrollmapper :: Deuterocanonical Project
 
+<!-- local-development:start -->
+## Desarrollo local
+
+Consulta [RUNNING.md](RUNNING.md) para ubicar cada componente, abrirlo en su IDE, compilarlo y conocer las comprobaciones realizadas y los requisitos pendientes.
+<!-- local-development:end -->
+
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W8RKPHPUF398G)
 
 Based on the Scrollmapper bible databases: https://github.com/scrollmapper/bible_databases
@@ -98,12 +104,3 @@ outputs...
 >>> 
 
 ```
-
-
-
-
-
-
-
-
-
