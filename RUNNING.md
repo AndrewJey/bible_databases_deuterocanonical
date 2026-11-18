@@ -1,21 +1,27 @@
+# Uso local de la colección
 
+Fork personal de [scrollmapper/bible_databases_deuterocanonical](https://github.com/scrollmapper/bible_databases_deuterocanonical), rama `master`. El contenido actual del original es una biblioteca de textos Markdown/JSON con utilidades Python. No es una aplicación con base de datos SQL que haya que compilar.
 
-<!-- local-development:start -->
-# Desarrollo local
+Abre [readme.md](readme.md) para el catálogo, `sources/` para los textos principales y `etc/` para las demás colecciones. Se conservan los avisos y las atribuciones de las fuentes. La rama histórica `2024` del original contiene la estructura anterior.
 
-Puedes abrir este repositorio en VS Code, Antigravity o Sublime Text. El compilador y los servicios necesarios dependen del componente indicado abajo.
-
-## Python
-
-Crea un entorno por aplicación desde PyCharm o la CLI. Python 3.12 es el punto inicial de compatibilidad; no se presume que todo el código o sus paquetes antiguos ya lo soporten.
+## Validar sin cambiar datos
 
 ```powershell
-py -3.12 -m venv .venv
+python tools/validate-local.py
 ```
 
-No se detectó un archivo requirements. Hay que identificar los imports y declarar las dependencias antes de instalarlas.
+Requiere Python 3 y Git. Analiza todos los JSON versionados y comprueba la sintaxis de los scripts Python sin ejecutarlos. Devuelve un código distinto de cero ante un error. No comprueba la exactitud del contenido ni genera nuevos catálogos.
 
-## Archivos ignorados
+## Utilidades de generación
 
-`.gitignore` excluye credenciales locales, estado del editor y salidas de las herramientas detectadas. No deja de versionar archivos que ya estaban en Git. Los manifiestos, archivos de bloqueo, recursos fuente y scripts de esquema forman parte del código.
-<!-- local-development:end -->
+Los scripts originales usan rutas relativas a su directorio de trabajo. Si necesitas regenerar datos, trabaja primero en una rama y revisa el diff:
+
+```powershell
+cd scripts
+python create_source_json_from_md.py
+python generate_book_list.py
+```
+
+Estos comandos sí escriben JSON y catálogos dentro de la colección. No son necesarios para leerla. No se ejecutaron masivamente durante la sincronización para evitar sustituir datos del original.
+
+`origin` apunta al fork personal y `upstream` al original; el push a upstream está deshabilitado localmente. Conserva el README original en minúsculas para evitar duplicados en Windows.

@@ -45,3 +45,18 @@ __pycache__/
 htmlcov/
 *.egg-info/
 # local-development:end
+
+
+# Personal workspace files (keep sanitized examples tracked)
+.vs/
+*.suo
+*.user
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+!.env.*.example
